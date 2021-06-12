@@ -1,13 +1,13 @@
+import dotenv from "dotenv"
 import Server from "./server"
 
-const PORT = parseInt(process.env.PORT || "3000")
+dotenv.config({ path: ".env" })
+const PORT: number = parseInt(process.env.PORT || "3000")
 
-export default new Server().start(PORT)
+export default new Server().startServer(PORT)
     .then(({ PORT, env }) => {
         console.log(
-            "X App :: running on http://localhost:%i in %s mode",
-            PORT,
-            env
+            `X App :: running on http://localhost:${PORT} in ${env} mode`,
         )
     })
     .catch(err => {

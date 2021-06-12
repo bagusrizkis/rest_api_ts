@@ -3,6 +3,6 @@ import { Pool } from "pg"
 export default new Pool({
     max: 20,
     connectionString:
-        'postgres://postgres:postgres@localhost:5432/x_rest_api_ts',
+        process.env.DB_STRING_CONFIG,
     idleTimeoutMillis: 30000
 })

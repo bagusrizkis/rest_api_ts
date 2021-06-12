@@ -7,7 +7,7 @@ import {
     createTodo,
     getDetailFromId
 } from "../querys/table"
-import pool from "../dbconfig/db"
+import pool from "../config/db"
 
 class TodoController {
 

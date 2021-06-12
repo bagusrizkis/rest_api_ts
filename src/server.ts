@@ -1,9 +1,9 @@
-import express from "express"
+import express, { Application } from "express"
 import router from "./routes"
-import pool from "./dbconfig/db"
+import pool from "./config/db"
 
 export default class Server {
-    private app;
+    private app: Application;
 
     constructor() {
         this.app = express()
@@ -28,7 +28,7 @@ export default class Server {
         this.app.use("/", router)
     }
 
-    public start = (PORT: number) => {
+    public startServer(PORT: number) {
         const env: string = this.app.get('env')
         return new Promise<{ PORT: number, env: string }>((resolve, reject) => {
             this.app.listen(PORT, () => {
